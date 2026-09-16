@@ -1,6 +1,6 @@
 ativo = {}
 #apenas teste de branch
-
+variavelTesteEXercicio = "teste"
 def cadastro(ativo):
     while True:
         try:
