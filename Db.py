@@ -1,7 +1,6 @@
 ativo = {}
 #apenas teste de branch
-variavel = "teste"
-variavel2 = "teste2"
+
 def cadastro(ativo):
     while True:
         try:
