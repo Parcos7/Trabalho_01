@@ -1,10 +1,10 @@
 # =====================================================================
 # NOTA DE NOMENCLATURA PESSOAL:
-# 'db'  -> Simplificação de "banco_de_dados" (representa a base em memória e o nome do arquivo).
-# 'arq' -> Simplificação de "arquivos" ou "arquivo" (usado para variáveis que manipulam a abertura e leitura no disco).
+# 'db'  -> Simplificação de "banco_de_dados" 
+# 'arq' -> Simplificação de "arquivos" ou "arquivo" 
 # =====================================================================
 
-# Importamos as funções modulares que criamos na Parte 1
+
 from persistencia import ler_db, salvar_db, TipoAtivo
 
 def cadastrar_ativo():
@@ -15,11 +15,10 @@ def cadastrar_ativo():
     ativo = {}
     print("\n--- CADASTRO DE NOVO ATIVO ---")
     
-    # 1. Validação rigorosa do ID numérico com try/except[cite: 1, 3]
     while True:
         try:
             id_num = int(input("Digite o ID numérico do ativo de TI: "))
-            id_str = str(id_num) # Usamos string como chave do dicionário/JSON para otimizar buscas
+            id_str = str(id_num) # Utilizei string como chave do dicionário/JSON para otimizar buscas
             
             # Impede o cadastro de IDs duplicados
             if id_str in db_inventario:
