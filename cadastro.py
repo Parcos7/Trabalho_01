@@ -1,9 +1,8 @@
 # =====================================================================
 # NOTA DE NOMENCLATURA PESSOAL:
-# 'db'  -> Simplificação de "banco_de_dados" 
-# 'arq' -> Simplificação de "arquivos" ou "arquivo" 
+# 'db'  -> Simplificação de "banco_de_dados" (representa a base em memória e o nome do arquivo).
+# 'arq' -> Simplificação de "arquivos" ou "arquivo" (usado para variáveis que manipulam a abertura e leitura no disco).
 # =====================================================================
-
 
 from persistencia import ler_db, salvar_db, TipoAtivo
 
@@ -18,7 +17,7 @@ def cadastrar_ativo():
     while True:
         try:
             id_num = int(input("Digite o ID numérico do ativo de TI: "))
-            id_str = str(id_num) # Utilizei string como chave do dicionário/JSON para otimizar buscas
+            id_str = str(id_num) # Usamos string como chave do dicionário/JSON para otimizar buscas
             
             # Impede o cadastro de IDs duplicados
             if id_str in db_inventario:
@@ -29,3 +28,42 @@ def cadastrar_ativo():
             break
         except ValueError:
             print("Erro: O ID deve ser um número inteiro. Tente novamente.")
+            
+    ativo['nome'] = ""
+    while ativo['nome'] == "":
+        # Hostname salvo sempre em minúsculo para facilitar a busca futura
+        ativo['nome'] = input("Digite o hostname do equipamento: ").strip().lower()
+        if ativo['nome'] == "":
+            print("Erro: O campo hostname não pode ficar vazio.")
+            
+    ativo['responsavel'] = ""
+    while ativo['responsavel'] == "":
+        # Nomes próprios formatados com a primeira letra maiúscula
+        ativo['responsavel'] = input("Digite o nome do responsável: ").strip().title()
+        if ativo['responsavel'] == "":
+            print("Erro: O campo responsável não pode ficar vazio.")
+            
+    ativo['local'] = ""
+    while ativo['local'] == "":
+        ativo['local'] = input("Digite a localização do ativo: ").strip().title()
+        if ativo['local'] == "":
+            print("Erro: A localização não pode ficar vazia.")
+            
+    print("\nTipos de Ativos disponíveis:")
+    for tipo in TipoAtivo:
+        print(f"{tipo.value} - {tipo.name}")
+        
+    while True:
+        try:
+            escolha = int(input("Escolha o número correspondente ao tipo: "))
+            ativo['tipo'] = TipoAtivo(escolha).name
+            break
+        except ValueError:
+            print("Erro: Digite um dos números da lista.")
+            
+    ativo['vulnerabilidades'] = []
+    
+    db_inventario[id_str] = ativo
+    salvar_db(db_inventario)
+    
+    print(f"\nSucesso: Ativo '{ativo['nome']}' cadastrado e salvo no db!")
