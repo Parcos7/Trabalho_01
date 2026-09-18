@@ -1,3 +1,9 @@
+# =====================================================================
+# NOTA DE NOMENCLATURA PESSOAL:
+# 'db'  -> Simplificação de "banco_de_dados" 
+# 'arq' -> Simplificação de "arquivos" ou "arquivo"
+# =====================================================================
+
 from persistencia import ler_db, salvar_db
 
 def atualizar_ativo():
