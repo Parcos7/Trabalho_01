@@ -1,7 +1,7 @@
 # =====================================================================
 # NOTA DE NOMENCLATURA PESSOAL:
-# 'db'  -> Simplificação de "banco_de_dados" (representa a base em memória e o nome do arquivo).
-# 'arq' -> Simplificação de "arquivos" ou "arquivo" (usado para variáveis que manipulam a abertura e leitura no disco).
+# 'db'  -> Simplificação de "banco_de_dados" 
+# 'arq' -> Simplificação de "arquivos" ou "arquivo" 
 # =====================================================================
 
 from persistencia import ler_db, salvar_db, TipoAtivo
