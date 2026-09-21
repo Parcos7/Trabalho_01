@@ -1,5 +1,5 @@
 from CRUD.cadastro import cadastrar_ativo
-from CRUD.consulta import consultar_ativo
+from CRUD.consulta import consultar_ativo, consultar_todosA
 from CRUD.atualizar import atualizar_ativo
 from CRUD.remover import remover_ativo
 from vulnerabilidades import registrar_vulnerabilidade
@@ -15,6 +15,7 @@ def menu_principal():
         print("3 - Atualizar dados do ativo (Update)")
         print("4 - Remover ativo do sistema (Delete)")
         print("5 - Registrar nova vulnerabilidade")
+        print("6 - Consultar todos os ativos.")
         print("0 - Sair do sistema")
         print("="*45)
         
@@ -34,6 +35,8 @@ def menu_principal():
                 case 0:
                     print("\nEncerrando o sistema de inventário. Até logo!")
                     break                
+                case 6:
+                    consultar_todosA()
                 case _:
                     print("\nErro: Opção inválida. Digita um número entre 0 e 5.")
 
