@@ -32,11 +32,12 @@ def menu_principal():
                     remover_ativo()
                 case 5:
                     registrar_vulnerabilidade()
+                case 6:
+                    consultar_todosA()
                 case 0:
                     print("\nEncerrando o sistema de inventário. Até logo!")
                     break                
-                case 6:
-                    consultar_todosA()
+
                 case _:
                     print("\nErro: Opção inválida. Digita um número entre 0 e 5.")
 

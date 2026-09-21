@@ -15,11 +15,14 @@ def consultar_todosA():
             print(f"Localização: {ativo['local']}")
             print(f"Tipo: {ativo['tipo']}")
             print("==============================")    
+<<<<<<< HEAD
             if len(ativo['vulnerabilidades']) == 0:
                 print(" -> Este equipamento está limpo. Nenhuma vulnerabilidade registrada.")
             else:
                 for vul in ativo['vulnerabilidades']:
                     print(f" -> [{vul['severidade'].upper()}] {vul['descricao']} | Status: {vul['status']}")
+=======
+>>>>>>> 53d686ee48f1cf61ba47a49647a6d52df36219c1
 
 def consultar_ativo():
     # Carrega o db atualizado do arquivo json para a memória (dicionário)
