@@ -5,7 +5,15 @@
 # =====================================================================
 
 from persistencia import ler_db
-
+def consultar_todosA():
+    db_inventario = ler_db()
+    for chave, ativo in db_inventario.items():
+            print(f"ID: {ativo['id']}")
+            print(f"Hostname: {ativo['nome']}")
+            print(f"Responsável: {ativo['responsavel']}")
+            print(f"Localização: {ativo['local']}")
+            print(f"Tipo: {ativo['tipo']}")
+            print("==============================")    
 def consultar_ativo():
     # Carrega o db atualizado do arquivo json para a memória (dicionário)
     db_inventario = ler_db()
