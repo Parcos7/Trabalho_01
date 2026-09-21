@@ -17,7 +17,7 @@ def cadastrar_ativo():
     while True:
         try:
             id_num = int(input("Digite o ID numérico do ativo de TI: "))
-            id_str = str(id_num) # Usamos string como chave do dicionário/JSON para otimizar buscas
+            id_str = str(id_num)  
             
             # Impede o cadastro de IDs duplicados
             if id_str in db_inventario:

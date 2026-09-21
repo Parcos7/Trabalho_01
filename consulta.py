@@ -36,7 +36,7 @@ def consultar_ativo():
                     print(f" -> [{vul['severidade'].upper()}] {vul['descricao']} | Status: {vul['status']}")
             
             encontrado = True
-            break # Como já encontrou o ativo, para a busca para economizar processamento
+            break 
             
     # Se terminar de varrer todo o dicionário e a variável continuar False, o ativo não existe
     if not encontrado:
