@@ -14,7 +14,7 @@ def consultar_todosA():
             print(f"Responsável: {ativo['responsavel']}")
             print(f"Localização: {ativo['local']}")
             print(f"Tipo: {ativo['tipo']}")
-            print("==============================")    
+            print("="*45)    
             if len(ativo['vulnerabilidades']) == 0:
                 print(" -> Este equipamento está limpo. Nenhuma vulnerabilidade registrada.")
             else:
