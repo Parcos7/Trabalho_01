@@ -5,6 +5,7 @@
 # =====================================================================
 
 from persistencia import ler_db
+
 def consultar_todosA():
     db_inventario = ler_db()
     for chave, ativo in db_inventario.items():
@@ -14,6 +15,12 @@ def consultar_todosA():
             print(f"Localização: {ativo['local']}")
             print(f"Tipo: {ativo['tipo']}")
             print("==============================")    
+            if len(ativo['vulnerabilidades']) == 0:
+                print(" -> Este equipamento está limpo. Nenhuma vulnerabilidade registrada.")
+            else:
+                for vul in ativo['vulnerabilidades']:
+                    print(f" -> [{vul['severidade'].upper()}] {vul['descricao']} | Status: {vul['status']}")
+
 def consultar_ativo():
     # Carrega o db atualizado do arquivo json para a memória (dicionário)
     db_inventario = ler_db()
