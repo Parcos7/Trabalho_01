@@ -15,7 +15,6 @@ def consultar_todosA():
             print(f"Tipo: {ativo['tipo']}")
             print("==============================")    
 
-
 def consultar_ativo():
     # Carrega o db atualizado do arquivo json para a memória (dicionário)
     db_inventario = ler_db()
