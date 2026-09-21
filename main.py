@@ -1,7 +1,7 @@
-from cadastro import cadastrar_ativo
-from consulta import consultar_ativo
-from atualizar import atualizar_ativo
-from remover import remover_ativo
+from CRUD.cadastro import cadastrar_ativo
+from CRUD.consulta import consultar_ativo
+from CRUD.atualizar import atualizar_ativo
+from CRUD.remover import remover_ativo
 from vulnerabilidades import registrar_vulnerabilidade
 
 def menu_principal():
