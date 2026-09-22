@@ -31,11 +31,22 @@ def cadastrar_ativo():
             
     ativo['nome'] = ""
     while ativo['nome'] == "":
-        # Hostname salvo sempre em minúsculo para facilitar a busca futura
+        print("Padrão da empresa:\n" \
+        "Notebook = NOTP(Seguido do patrimônio)\n" \
+        "Servidor = SERV(Seguido do patrimônio)\n" \
+        "Desktop = MICP(Seguido do patrimônio)\n" \
+        "Roteadores = ROTP(Seguido do patrimônio)\n")
+        print("=\n"*45)
+        
+        pre_validos = ("notp", "serv", "micp", "rotp")
         ativo['nome'] = input("Digite o hostname do equipamento: ").strip().lower()
         if ativo['nome'] == "":
             print("Erro: O campo hostname não pode ficar vazio.")
-            
+        elif not ativo['nome'].startswith(pre_validos):
+            print("Erro: Hostname fora do padrão. Inicie com NOTP, SERV, MICP ou ROTP") 
+        else:
+            break
+               
     ativo['responsavel'] = ""
     while ativo['responsavel'] == "":
         # Nomes próprios formatados com a primeira letra maiúscula

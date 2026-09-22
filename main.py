@@ -8,7 +8,7 @@ def menu_principal():
     # O laço while True mantém o menu a repetir-se até o comando 'break' ser acionado
     while True:
         print("\n" + "="*45)
-        print("   INVENTÁRIO DE CIBERSEGURANÇA - GESTÃO   \n" \
+        print("   INVENTÁRIO DE CIBERSEGURANÇA - GESTÃO   \n\n" \
         "1 - Cadastrar novo ativo de TI (Create)\n" \
         "2 - Consultar ativo existente (Read)\n" \
         "3 - Atualizar dados do ativo (Update)\n"\
