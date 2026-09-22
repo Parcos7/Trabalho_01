@@ -19,7 +19,7 @@ def consultar_todosA():
                 print(" -> Este equipamento está limpo. Nenhuma vulnerabilidade registrada.")
             else:
                 for vul in ativo['vulnerabilidades']:
-                    print(f" -> [{vul['severidade'].upper()}] {vul['descricao']} | Status: {vul['status']}")
+                    print(f" -> [{vul['cve']}] [{vul['severidade'].upper()}] {vul['descricao']} | Status: {vul['status']}")
 
 
 def consultar_ativo():

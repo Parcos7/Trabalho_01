@@ -20,9 +20,13 @@ def registrar_vulnerabilidade():
         print(f"\n[ ATIVO SELECIONADO: {ativo['nome']} ]")
         
         vul = {}
-        vul['descricao'] = input("Descrição da fragilidade (Ex: Senha fraca, porta aberta): ").strip()
-        vul['categoria'] = input("Categoria (Ex: Rede, Software, Hardware): ").strip()
+  
+        cve_input = input("Digite o código CVE (ou pressione Enter se não possuir): ").strip().upper()
+        vul['cve'] = cve_input if cve_input != "" else "N/A"
         
+        vul['descricao'] = input("Descrição da fragilidade (Ex: Senha fraca, porta aberta): ").strip()
+        vul['categoria'] = input("Categoria (Ex: Rede, Software, Hardware): ").strip()   
+
         # Validação usando Tuplas 
         severidades_validas = ("baixa", "media", "alta", "critica")
         while True:
