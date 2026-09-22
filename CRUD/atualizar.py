@@ -2,6 +2,7 @@
 # NOTA DE NOMENCLATURA PESSOAL:
 # 'db'  -> Simplificação de "banco_de_dados" 
 # 'arq' -> Simplificação de "arquivos" ou "arquivo"
+# 'resp' -> Simplificação de "Responsavel"
 # =====================================================================
 
 from persistencia import ler_db, salvar_db
@@ -23,7 +24,7 @@ def atualizar_ativo():
         print(f"Responsável atual: {ativo['responsavel']}")
         novo_resp = input("Digite o novo responsável (ou aperte Enter para manter o atual): ").strip().title()
         
-        # Se o usuário digitou algo (a string não ficou vazia), nós atualizamos o valor
+        # Se o usuário digitou algo (a string não ficou vazia) atualiza o valor
         if novo_resp != "":
             ativo['responsavel'] = novo_resp
             

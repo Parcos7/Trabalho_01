@@ -8,15 +8,14 @@ def menu_principal():
     # O laço while True mantém o menu a repetir-se até o comando 'break' ser acionado
     while True:
         print("\n" + "="*45)
-        print("   INVENTÁRIO DE CIBERSEGURANÇA - GESTÃO   ")
-        print("="*45)
-        print("1 - Cadastrar novo ativo de TI (Create)")
-        print("2 - Consultar ativo existente (Read)")
-        print("3 - Atualizar dados do ativo (Update)")
-        print("4 - Remover ativo do sistema (Delete)")
-        print("5 - Registrar nova vulnerabilidade")
-        print("6 - Consultar todos os ativos.")
-        print("0 - Sair do sistema")
+        print("   INVENTÁRIO DE CIBERSEGURANÇA - GESTÃO   \n" \
+        "1 - Cadastrar novo ativo de TI (Create)\n" \
+        "2 - Consultar ativo existente (Read)\n" \
+        "3 - Atualizar dados do ativo (Update)\n"\
+        "4 - Remover ativo do sistema (Delete)\n"\
+        "5 - Registrar nova vulnerabilidade\n" \
+        "6 - Consultar todos os ativos.\n" \
+        "0 - Sair do sistema\n")
         print("="*45)
         
         opcao = int(input("Escolha uma opção do menu: "))
