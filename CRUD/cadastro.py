@@ -32,10 +32,10 @@ def cadastrar_ativo():
     ativo['nome'] = ""
     while ativo['nome'] == "":
         print("Padrão da empresa:\n" \
-        "Notebook = NOTP(Seguido do patrimônio)\n" \
-        "Servidor = SERV(Seguido do patrimônio)\n" \
-        "Desktop = MICP(Seguido do patrimônio)\n" \
-        "Roteadores = ROTP(Seguido do patrimônio)\n")
+            "Notebook = NOTP(Seguido do patrimônio)\n" \
+            "Servidor = SERV(Seguido do patrimônio)\n" \
+            "Desktop = MICP(Seguido do patrimônio)\n" \
+            "Roteadores = ROTP(Seguido do patrimônio)\n")
         print("=\n"*45)
         
         pre_validos = ("notp", "serv", "micp", "rotp")
@@ -46,7 +46,7 @@ def cadastrar_ativo():
             print("Erro: Hostname fora do padrão. Inicie com NOTP, SERV, MICP ou ROTP") 
         else:
             break
-               
+
     ativo['responsavel'] = ""
     while ativo['responsavel'] == "":
         # Nomes próprios formatados com a primeira letra maiúscula

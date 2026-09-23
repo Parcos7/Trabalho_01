@@ -4,8 +4,6 @@
 # 'arq' -> Simplificação de "arquivos" ou "arquivo" (usado para variáveis que manipulam a abertura e leitura no disco).
 # =====================================================================
 
-# (modulo) remover
-
 from persistencia import ler_db, salvar_db
 
 def remover_ativo():

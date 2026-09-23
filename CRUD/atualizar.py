@@ -15,7 +15,7 @@ def atualizar_ativo():
     # Pede o ID. Como salvamos a chave do nosso dicionário como string, capturamos direto como texto
     id_busca = input("Digite o ID numérico do ativo que deseja atualizar: ").strip()
     
-    # Verifica se a chave existe direto no dicionário (busca otimizada O(1))
+    # Verifica se a chave existe direto no dicionário 
     if id_busca in db_inventario:
         ativo = db_inventario[id_busca]
         print(f"\n[ ATIVO ENCONTRADO: {ativo['nome']} ]")

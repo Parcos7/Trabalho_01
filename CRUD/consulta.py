@@ -44,6 +44,7 @@ def consultar_ativo():
                 f"Localização: {ativo['local']}\n"\
                 f"Tipo: {ativo['tipo']}\n" )
             print("="*45)     
+            
             print("\n--- Vulnerabilidades Associadas ---")
             # Valida se a lista de vulnerabilidades está vazia e exibe a mensagem correspondente
             if len(ativo['vulnerabilidades']) == 0:
