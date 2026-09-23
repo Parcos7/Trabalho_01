@@ -9,17 +9,18 @@ from persistencia import ler_db
 def consultar_todosA():
     db_inventario = ler_db()
     for chave, ativo in db_inventario.items():
-            print(f"ID: {ativo['id']}")
-            print(f"Hostname: {ativo['nome']}")
-            print(f"Responsável: {ativo['responsavel']}")
-            print(f"Localização: {ativo['local']}")
-            print(f"Tipo: {ativo['tipo']}")
+            print(f"ID: {ativo['id']}\n"\
+                f"Hostname: {ativo['nome']}\n"\
+                f"Responsável: {ativo['responsavel']}\n"\
+                f"Localização: {ativo['local']}\n"\
+                f"Tipo: {ativo['tipo']}\n" )
             print("="*45)    
             if len(ativo['vulnerabilidades']) == 0:
                 print(" -> Este equipamento está limpo. Nenhuma vulnerabilidade registrada.")
+                print("="*45)    
             else:
                 for vul in ativo['vulnerabilidades']:
-                    print(f" -> [{vul['cve']}] [{vul['severidade'].upper()}] {vul['descricao']} | Status: {vul['status']}")
+                    print(f" -> [{vul['cve'].upper()}] [{vul['severidade'].upper()}] {vul['descricao']} | Status: {vul['status']}")
 
 
 def consultar_ativo():
@@ -37,16 +38,17 @@ def consultar_ativo():
         # Verifica se o termo digitado bate com o ID (convertido pra string) ou com o hostname
         if str(ativo['id']) == termo_busca or ativo['nome'].lower() == termo_busca:
             print("\n[ ATIVO ENCONTRADO ]")
-            print(f"ID: {ativo['id']}")
-            print(f"Hostname: {ativo['nome']}")
-            print(f"Responsável: {ativo['responsavel']}")
-            print(f"Localização: {ativo['local']}")
-            print(f"Tipo: {ativo['tipo']}")
-            
+            print(f"ID: {ativo['id']}\n"\
+                f"Hostname: {ativo['nome']}\n"\
+                f"Responsável: {ativo['responsavel']}\n"\
+                f"Localização: {ativo['local']}\n"\
+                f"Tipo: {ativo['tipo']}\n" )
+            print("="*45)     
             print("\n--- Vulnerabilidades Associadas ---")
             # Valida se a lista de vulnerabilidades está vazia e exibe a mensagem correspondente
             if len(ativo['vulnerabilidades']) == 0:
-                print(" -> Este equipamento está limpo. Nenhuma vulnerabilidade registrada.")
+                print(f" -> O equipamento {ativo['nome']} está limpo. Nenhuma vulnerabilidade registrada.\n")
+                print("="*45)    
             else:
                 for vul in ativo['vulnerabilidades']:
                     print(f" -> [{vul['severidade'].upper()}] {vul['descricao']} | Status: {vul['status']}")
