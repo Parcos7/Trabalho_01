@@ -2,6 +2,8 @@
 # NOTA DE NOMENCLATURA PESSOAL:
 # 'db'  -> Simplificação de "banco_de_dados" 
 # 'arq' -> Simplificação de "arquivos" ou "arquivo" 
+# 'res' -> Simplificação de "Responsavel"
+# 'loc' -> Simplificação de "Localidade"
 # =====================================================================
 
 from persistencia import ler_db, salvar_db, TipoAtivo
@@ -31,35 +33,56 @@ def cadastrar_ativo():
             
     ativo['nome'] = ""
     while ativo['nome'] == "":
+        print("="*45)
         print("Padrão da empresa:\n" \
             "Notebook = NOTP(Seguido do patrimônio)\n" \
             "Servidor = SERV(Seguido do patrimônio)\n" \
             "Desktop = MICP(Seguido do patrimônio)\n" \
             "Roteadores = ROTP(Seguido do patrimônio)\n")
-        print("=\n"*45)
+        print("="*45)
         
         pre_validos = ("notp", "serv", "micp", "rotp")
-        ativo['nome'] = input("Digite o hostname do equipamento: ").strip().lower()
-        if ativo['nome'] == "":
-            print("Erro: O campo hostname não pode ficar vazio.")
-        elif not ativo['nome'].startswith(pre_validos):
-            print("Erro: Hostname fora do padrão. Inicie com NOTP, SERV, MICP ou ROTP") 
-        else:
-            break
+        try:
+            ativo_host = input("Digite o hostname do equipamento: ").strip().lower()
+
+            if ativo_host == "":
+                raise ValueError(" O campo hostname não pode ficar vazio.")
+            for item in db_inventario.values():
+                if item.get('nome') == ativo_host:
+                    raise ValueError("Valor duplicado. Tente novamente.")
+            if not ativo_host.startswith(pre_validos):
+                raise ValueError("Hostname fora do padrão. Inicie com NOTP, SERV, MICP ou ROTP") 
+
+                
+            ativo['nome'] = ativo_host
+        except ValueError as erro:
+            print(f"Erro:{ erro}")
 
     ativo['responsavel'] = ""
     while ativo['responsavel'] == "":
-        # Nomes próprios formatados com a primeira letra maiúscula
-        ativo['responsavel'] = input("Digite o nome do responsável: ").strip().title()
-        if ativo['responsavel'] == "":
-            print("Erro: O campo responsável não pode ficar vazio.")
-            
+        try:        
+            ativo_res = input("Digite o nome do responsável: ").strip().title()
+            if ativo_res == "":
+                raise ValueError("O campo responsável não pode ficar vazio.\n")
+            elif not ativo_res.replace(" ", "").isalpha():
+                raise ValueError("O responsavel não pode ter numeros ou simbolos.\n")
+            ativo['responsavel'] = ativo_res
+        except ValueError as erro:
+                print(f"Erro: {erro}")
+    
     ativo['local'] = ""
     while ativo['local'] == "":
-        ativo['local'] = input("Digite a localização do ativo: ").strip().title()
-        if ativo['local'] == "":
-            print("Erro: A localização não pode ficar vazia.")
-            
+        try:
+            ativo_loc = input("Digite a localização do ativo: ").strip().title()
+            if ativo_loc == "":
+                raise ValueError("Localidade não pode estar vazia")
+            elif not ativo_loc.replace(" ", "").isalpha():
+                raise ValueError("A localização não pode ficar vazia ou ter numeros e símbolos")       
+            ativo['local'] = ativo_loc
+        except ValueError as erro:
+            print(f"Erro:{erro}")
+
+
     print("\nTipos de Ativos disponíveis:")
     for tipo in TipoAtivo:
         print(f"{tipo.value} - {tipo.name}")

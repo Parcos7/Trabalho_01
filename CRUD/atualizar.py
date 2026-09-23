@@ -34,29 +34,34 @@ def atualizar_ativo():
                 case 1:
                     print(f"Responsável atual: {ativo['responsavel']}")
                     while True:
-                        novo_resp = input("Digite o novo responsável (ou aperte Enter para manter o atual): ").strip().title()                                              
-                        if novo_resp == "":
-                            break 
-                        elif novo_resp.replace(" ", "").isalpha():                            
+                        try:
+                            novo_resp = input("Digite o novo responsável (ou aperte Enter para manter o atual): ").strip().title()                                              
+                            if novo_resp == "":
+                                print("Nenhuma alteração feita.")
+                                break 
+                            if not novo_resp.replace(" ", "").isalpha():                            
+                                raise ValueError("O nome do responsavel não pode ter numeros ou simbolos.")                             
                             ativo['responsavel'] = novo_resp
-                            break 
-                        else:
-                            print("Erro: O nome não pode conter números ou símbolos. Tente novamente.\n")
-                    break 
+                            break
+                        except ValueError as erro:
+                            print(f"Erro:{erro}") 
                     
                 case 2:
                     print(f"Localização atual: {ativo['local']}")
                     while True:
-                        novo_local = input("Digite a nova localização (ou aperte Enter para manter a atual): ").strip().title()
-                        
-                        if novo_local == "":
+                        try:    
+                            novo_local = input("Digite a nova localização (ou aperte Enter para manter a atual): ").strip().title()
+                            
+                            if novo_local == "":
+                                print("Nenhum local foi alterado.\n")
+                                break
+                            if not novo_local.replace(" ", "").isalpha():
+                                raise ValueError ("A localidade não pode conter números. Tente novamente.\n")
+                            ativo['local'] = novo_local
                             break
-                        elif novo_local.replace(" ", "").isalpha():
-                            ativo['local'] = novo_local 
-                        else:
-                            print("Erro: A localidade não pode conter números. Tente novamente.\n")
-                    break 
-                    
+                        except ValueError as erro:
+                            print(f"Erro:{erro}")
+                                             
                 case 0:
                     print("Atualização cancelada.")
                     break
