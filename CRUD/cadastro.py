@@ -56,7 +56,7 @@ def cadastrar_ativo():
                 
             ativo['nome'] = ativo_host
         except ValueError as erro:
-            print(f"Erro:{ erro}")
+            print(f"\nErro:{ erro}\n")
 
     ativo['responsavel'] = ""
     while ativo['responsavel'] == "":
@@ -68,7 +68,7 @@ def cadastrar_ativo():
                 raise ValueError("O responsavel não pode ter numeros ou simbolos.\n")
             ativo['responsavel'] = ativo_res
         except ValueError as erro:
-                print(f"Erro: {erro}")
+                print(f"\nErro: {erro}\n")
     
     ativo['local'] = ""
     while ativo['local'] == "":
@@ -80,7 +80,7 @@ def cadastrar_ativo():
                 raise ValueError("A localização não pode ficar vazia ou ter numeros e símbolos")       
             ativo['local'] = ativo_loc
         except ValueError as erro:
-            print(f"Erro:{erro}")
+            print(f"\nErro:{erro}\n")
 
 
     print("\nTipos de Ativos disponíveis:")
@@ -93,7 +93,7 @@ def cadastrar_ativo():
             ativo['tipo'] = TipoAtivo(escolha).name
             break
         except ValueError:
-            print("Erro: Digite um dos números da lista.")
+            print("\nErro: Digite um dos números da lista.\n")
             
     ativo['vulnerabilidades'] = []
     

@@ -18,6 +18,7 @@ def atualizar_ativo():
         ativo = db_inventario[id_busca]
         print(f"\n[ ATIVO ENCONTRADO: {ativo['nome']} ]")
         while True:   
+            print("="*45)
             print("Escolha a opção que deseja alterar:\n" \
             "1 - Nome do responsavel\n" \
             "2 - Localidade\n" \
@@ -27,7 +28,7 @@ def atualizar_ativo():
             try:
                 opcao_at = int(input("Digite o número da opção: "))
             except ValueError:
-                print("Erro: Digite um número válido do menu.\n")
+                print("\nErro: Digite um número válido do menu.\n")
                 continue             
 
             match opcao_at:
@@ -39,12 +40,12 @@ def atualizar_ativo():
                             if novo_resp == "":
                                 print("Nenhuma alteração feita.")
                                 break 
-                            if not novo_resp.replace(" ", "").isalpha():                            
+                            elif not novo_resp.replace(" ", "").isalpha():                            
                                 raise ValueError("O nome do responsavel não pode ter numeros ou simbolos.")                             
                             ativo['responsavel'] = novo_resp
                             break
                         except ValueError as erro:
-                            print(f"Erro:{erro}") 
+                            print(f"\nErro:{erro}\n") 
                     
                 case 2:
                     print(f"Localização atual: {ativo['local']}")
@@ -55,19 +56,19 @@ def atualizar_ativo():
                             if novo_local == "":
                                 print("Nenhum local foi alterado.\n")
                                 break
-                            if not novo_local.replace(" ", "").isalpha():
-                                raise ValueError ("A localidade não pode conter números. Tente novamente.\n")
+                            elif not novo_local.replace(" ", "").isalpha():
+                                raise ValueError ("A localidade não pode conter números. Tente novamente.")
                             ativo['local'] = novo_local
                             break
                         except ValueError as erro:
-                            print(f"Erro:{erro}")
+                            print(f"\nErro:{erro}\n")
                                              
                 case 0:
-                    print("Atualização cancelada.")
+                    print("\nAtualizaçãno cancelada.\n")
                     break
                     
                 case _:
-                    print("Erro: Opção inválida. Escolha 1, 2 ou 0.\n")
+                    print("\nErro: Opção inválida. Escolha 1, 2 ou 0.\n")
                     
         if opcao_at != 0:
             salvar_db(db_inventario)
