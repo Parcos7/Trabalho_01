@@ -15,7 +15,7 @@ def consultar_todosA():
                 f"Localização: {ativo['local']}\n"\
                 f"Tipo: {ativo['tipo']}\n" )
             print("="*45)    
-            if len(ativo['vulnerabilidades']) == 0:
+            if not len(ativo['vulnerabilidades']):
                 print(" -> Este equipamento está limpo. Nenhuma vulnerabilidade registrada.")
                 print("="*45)    
             else:
@@ -47,13 +47,15 @@ def consultar_ativo():
             
             print("\n--- Vulnerabilidades Associadas ---")
             # Valida se a lista de vulnerabilidades está vazia e exibe a mensagem correspondente
-            if len(ativo['vulnerabilidades']) == 0:
+            if not len(ativo['vulnerabilidades']):
+                print("="*45)  
                 print(f" -> O equipamento {ativo['nome']} está limpo. Nenhuma vulnerabilidade registrada.\n")
                 print("="*45)    
             else:
                 for vul in ativo['vulnerabilidades']:
+                    print("="*45)  
                     print(f" -> [{vul['severidade'].upper()}] {vul['descricao']} | Status: {vul['status']}")
-            
+                    print("="*45)  
             encontrado = True
             break 
             
