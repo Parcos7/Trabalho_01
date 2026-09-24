@@ -9,8 +9,6 @@
 from persistencia import ler_db, salvar_db, TipoAtivo
 
 def cadastrar_ativo():
-    """(Create) - Valida e cadastra um novo equipamento de TI na base."""
-    # Carrega o db atual para a memória antes de fazer alterações
     db_inventario = ler_db()
     
     ativo = {}

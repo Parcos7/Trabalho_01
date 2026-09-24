@@ -16,11 +16,7 @@ class TipoAtivo(Enum):
 nome_db = 'inventario_db.json'
 
 def ler_db():
-    """
-    Lê o arq JSON e retorna os dados como um dicionário (hash map).
-    """
     try:
-        # Abre o arq em modo de leitura ('r')
         with open(nome_db, 'r') as arq_leitura:
             dados = json.load(arq_leitura)
             return dados
@@ -35,13 +31,9 @@ def ler_db():
         return {}
 
 def salvar_db(db_atualizado):
-    """
-    Recebe o dicionário do sistema em memória e persiste no arq de texto JSON.
-    """
+
     try:
-        # Abre o arq em modo de escrita ('w')
         with open(nome_db, 'w') as arq_escrita:
-            # Salva o dicionário no arq com indentação para ficar legível
             json.dump(db_atualizado, arq_escrita, indent=4)
             
     except Exception as erro:

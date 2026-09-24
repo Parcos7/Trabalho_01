@@ -5,7 +5,6 @@ from CRUD.remover import remover_ativo
 from vulnerabilidades import registrar_vulnerabilidade
 
 def menu_principal():
-    # O laço while True mantém o menu a repetir-se até o comando 'break' ser acionado
     while True:
         print("\n" + "="*45)
         print("   INVENTÁRIO DE CIBERSEGURANÇA - GESTÃO   \n\n" \

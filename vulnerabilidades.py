@@ -14,7 +14,6 @@ def registrar_vulnerabilidade():
     print("\n--- REGISTRAR NOVA VULNERABILIDADE ---")
     id_busca = input("Digite o ID numérico do ativo que possui a falha: ").strip()
     
-    # Verifica se o equipamento realmente existe na base antes de associar uma falha
     if id_busca in db_inventario:
         ativo = db_inventario[id_busca]
         print(f"\n[ ATIVO SELECIONADO: {ativo['nome']} ]")
@@ -27,7 +26,6 @@ def registrar_vulnerabilidade():
         vul['descricao'] = input("Descrição da fragilidade (Ex: Senha fraca, porta aberta): ").strip()
         vul['categoria'] = input("Categoria (Ex: Rede, Software, Hardware): ").strip()   
 
-        # Validação usando Tuplas 
         severidades_validas = ("baixa", "media", "alta", "critica")
         while True:
             sev = input("Severidade (baixa, media, alta, critica): ").strip().lower()
@@ -44,10 +42,8 @@ def registrar_vulnerabilidade():
                 break
             print("Erro: Digite um status válido da lista.")
             
-        # Adiciona o dicionário da nova falha dentro da lista de vulnerabilidades deste ativo específico
         ativo['vulnerabilidades'].append(vul)
         
-        # Persiste a alteração no arq JSON
         salvar_db(db_inventario)
         
         print(f"\nSucesso: Vulnerabilidade registrada e vinculada ao ativo '{ativo['nome']}' no db!")
