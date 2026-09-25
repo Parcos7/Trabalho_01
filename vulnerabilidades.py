@@ -8,7 +8,6 @@
 from persistencia import ler_db, salvar_db
 
 def registrar_vulnerabilidade():
-    # Carrega a base atualizada para a memória
     db_inventario = ler_db()
     
     print("\n--- REGISTRAR NOVA VULNERABILIDADE ---")
@@ -19,9 +18,6 @@ def registrar_vulnerabilidade():
         print(f"\n[ ATIVO SELECIONADO: {ativo['nome']} ]")
         
         vul = {}
-  
-        cve_input = input("Digite o código CVE (ou pressione Enter se não possuir): ").strip().upper()
-        vul['cve'] = cve_input if cve_input != "" else "N/A"
         
         vul['descricao'] = input("Descrição da fragilidade (Ex: Senha fraca, porta aberta): ").strip()
         vul['categoria'] = input("Categoria (Ex: Rede, Software, Hardware): ").strip()   
