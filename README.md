@@ -1,9 +1,62 @@
-### Decisões de Arquitetura e Refatoração
+Trabalho 1 - Inventário de Ativos e Vulnerabilidades (Cibersegurança)
 
-Durante o desenvolvimento deste sistema de inventário de ativos e vulnerabilidades, o código-fonte passou por uma etapa de refatoração. O processo teve como objetivo aprimorar a estrutura interna do projeto, sem alterar sua funcionalidade ou o comportamento externo da aplicação.
+Este repositório contém o código-fonte desenvolvido para a 1ª Atividade Avaliativa da disciplina de Cibersegurança na Universidade Federal de Uberlândia (UFU).
 
-As principais decisões de engenharia de software adotadas foram:
+O projeto consiste em um sistema de linha de comando em Python que simula uma base de inventário de segurança, permitindo realizar operações de CRUD (Criar, Consultar, Atualizar e Remover) em ativos de TI e suas respectivas vulnerabilidades.
 
-* **Modularização e Alta Coesão:** O código Python foi reestruturado e dividido em módulos distintos para separar as responsabilidades. Essa abordagem busca garantir que cada componente apresente alta coesão, resultando em um software mais fácil de integrar, testar e manter.
-* **Controle e Prevenção de Bugs:** A reorganização disciplinada do código e do fluxo de persistência de dados em arquivos JSON ajuda a simplificar o projeto interno e minimiza significativamente as chances de introdução de *bugs*.
-* **Automação e Ferramental:** Para garantir a integridade do código durante a limpeza, técnicas modernas foram adotadas na IDE (como atalhos de substituição de símbolos). Isso permitiu a renomeação segura de variáveis globais e locais, como a `lista_vulns`, alterando todas as referências automaticamente e evitando efeitos colaterais indesejados.
+🚀 Como Clonar o Repositório
+
+Para baixar uma cópia deste repositório para o seu computador e executar o projeto localmente, siga os passos abaixo:
+
+Pré-requisitos
+
+Certifique-se de ter instalado em sua máquina:
+
+Git
+
+Python 3.x
+
+Passo a Passo
+
+Abra o terminal (Prompt de Comando, PowerShell ou Git Bash) no diretório onde deseja salvar o projeto.
+
+Execute o comando de clonagem utilizando a URL do repositório:
+
+git clone https://github.com/Parcos7/Trabalho_01.git
+
+
+Entre na pasta criada pelo comando:
+
+cd Trabalho_01
+
+
+Execute o arquivo principal da aplicação utilizando o Python:
+
+python main.py
+
+
+🛠️ Tecnologias e Recursos Utilizados
+
+Linguagem: Python
+
+Controle de Versão: Git / GitHub (Utilização de múltiplas branches e operações de merge)
+
+Persistência de Dados: Manipulação de arquivos locais em formato JSON.
+
+Estruturas de Dados: Uso de dicionários (dict) otimizados como hash maps para buscas e a classe Enum para a tipagem dos ativos.
+
+📋 Funcionalidades do Sistema
+
+Menu Interativo: Interface textual via prompt com tratamento de exceções (try/except) para evitar falhas com entradas incorretas.
+
+Gestão de Ativos (CRUD):
+
+Cadastrar: Inserção de novos equipamentos (Notebook, Servidor, Roteador ou Banco de Dados) com ID numérico único.
+
+Consultar: Busca indexada por ID ou hostname.
+
+Atualizar: Modificação de dados cadastrais.
+
+Remover: Exclusão de ativos e suas vulnerabilidades vinculadas.
+
+Gestão de Vulnerabilidades: Inclusão contínua de fragilidades associadas aos ativos, com classificação de severidade e status de tratamento.
