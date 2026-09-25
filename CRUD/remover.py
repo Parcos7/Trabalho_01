@@ -15,7 +15,6 @@ def remover_ativo():
     if id_busca in db_inventario:
         nome_removido = db_inventario[id_busca]['nome']
         
-        
         del db_inventario[id_busca]
         
         salvar_db(db_inventario)
